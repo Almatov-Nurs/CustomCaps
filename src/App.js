@@ -6,6 +6,7 @@ import MainPage from "./pages/mainPage/MainPage";
 import ProductPage from "./pages/productPage/ProductPage";
 import BasketPage from "./pages/basketPage/BasketPage";
 import CatalogPage from "./pages/catalogPage/CatalogPage";
+import Catalog2 from "./components/mainPage/catalog2/Catalog2";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="catalog/" element={<CatalogPage/>}/>
             <Route path="cap/:name/" element={<ProductPage/>}/>
             <Route path="basket/" element={<BasketPage/>}/>
+            <Route path="catalog2/" element={<Catalog2/>}/>
         </Routes>
       <Footer/>
     </div>
