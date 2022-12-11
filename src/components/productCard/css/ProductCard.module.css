@@ -1,0 +1,163 @@
+.link {text-decoration: none}
+.card {
+    width: max-content;
+    border: 1px solid rgba(196, 196, 196, 0.5);
+    border-radius: 25px;
+    background: #F3F2F2;
+}
+.cardSlide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardSlide .cardInfo,
+.cardSlide .cardInfo span {
+    display: flex;
+    flex-direction: column;
+    row-gap: 11px;
+    text-align: center;
+}
+.cardSlide .image {
+    margin-bottom: 40px;
+}
+.cardSlide .image img {
+    width: 218px;
+    height: 144px;
+}
+.card .image {
+    width: 236px;
+    padding: 25px 28px 18px;
+}
+.card .image img {
+    width: 100%;
+    height: 173px;
+}
+.card .cardInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 56px;
+    padding: 23px 22px;
+    border: 1px solid rgba(196, 196, 196, 0.5);
+    border-radius: 22px;
+}
+.cardInfo span {
+    text-transform: capitalize;
+    color: #847E7E;
+}
+.card .cardInfo h3 {
+    font-size: 18px;
+    line-height: 22px;
+}
+.cardSlide .cardInfo span h3 {
+    font-size: 24px;
+    line-height: 29px;
+}
+.cardInfo span p {
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.05em;
+}
+.cardInfo>h3 {
+    color: #FDDB16;
+}
+@media screen and (max-width: 1000px){
+    .cardSlide .image img,
+    .card .image img {
+        height: 103px;
+    }
+    .card .cardInfo {
+        column-gap: 25px;
+    }
+    .cardSlide .image {
+        margin-bottom: 28px;
+    }
+    .cardSlide .image img {
+        width: 155px;
+    }
+    .cardSlide .cardInfo span {
+        width: 106px;
+        text-align: center;
+        row-gap: 8px;
+    }
+    .cardSlide .cardInfo {
+        row-gap: 5px;
+    }
+    .cardSlide .cardInfo span h3 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+@media screen and (max-width: 768px){
+    .card .image {
+        padding: 16px 19px 9px;
+    }
+    .card .cardInfo {
+        column-gap: 20px;
+        padding: 16px 15px;
+    }
+}
+@media screen and (max-width: 480px){
+    .cardSlide .image img,
+    .card .image img {
+        height: 91px;
+    }
+    .cardSlide .image img {
+        width: 137px;
+    }
+    .card .image {
+        width: max-content;
+    }
+    .cardSlide .image {
+        margin-bottom: 21px;
+    }
+    .card .cardInfo {
+        column-gap: 11px;
+    }
+    .card .cardInfo span {
+        width: 106px;
+    }
+    .cardSlide .cardInfo span p {
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .cardSlide .cardInfo>h3,
+    .cardSlide .cardInfo span h3,
+    .card .cardInfo>h3,
+    .card .cardInfo span h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+@media screen and (max-width: 320px){
+    .cardSlide .image img {
+        height: 51px;
+    }
+    .card {
+        border-radius: 15px;
+    }
+    .card .image {
+        padding: 12px 15px 6px;
+    }
+    .card .image img {
+        height: 70px;
+    }
+    .cardSlide .image {
+        margin-bottom: 10px;
+    }
+    .card .cardInfo {
+        border-radius: 14px;
+        padding: 12px 11px;
+    }
+    .card .cardInfo span,
+    .cardSlide .cardInfo span {
+        width: 75px;
+    }
+    .cardSlide .cardInfo>h3,
+    .cardSlide .cardInfo span h3,
+    .card .cardInfo>h3,
+    .card .cardInfo span h3 {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

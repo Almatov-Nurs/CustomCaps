@@ -1,0 +1,84 @@
+.basket {
+    width: 100%;
+    height: 100vh;
+    padding: 0 135px;
+}
+.baskets {
+    width: 100%;
+    padding: 50px 25px;
+    border-top: 3px solid #847E7E;
+    border-bottom: 3px solid #847E7E;
+}
+.baskets ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: 50px;
+    list-style: none;
+}
+.text h3 {
+    font-size: 24px;
+    line-height: 29px;
+}
+.text p {
+    font-size: 18px;
+    line-height: 22px;
+}
+.baskets__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.baskets__inner img {
+    height: 96px;
+}
+.baskets__inner h2 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FDDB16;
+}
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    background: #FFFFFF;
+    border: 1px solid #847E7E;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #847E7E;
+    box-sizing: border-box;
+}
+.counter button {
+    border: none;
+    outline: none;
+    width: max-content;
+    background: none;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+.counter button:first-child {
+    padding: 10px 0 10px 16px;
+}
+.counter button:last-child {
+    padding: 10px 18px 10px 0;
+}
+.size {
+    cursor: default;
+    padding: 10px 27px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    background: #FFFFFF;
+    border: 1px solid #847E7E;
+    border-radius: 10px;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+}
+@media screen and (max-width: 1440px){
+
+}
