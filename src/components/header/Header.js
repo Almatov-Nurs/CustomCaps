@@ -39,7 +39,7 @@ const Header = () => {
                         />
                         <Link to="">{searching ? <Searching/> : <Search/>}</Link>
                     </form>
-                    <Basket/>
+                    <Link to="/basket/"><Basket/></Link>
                 </div>
             </div>
         </div>
