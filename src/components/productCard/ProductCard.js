@@ -12,8 +12,8 @@ const ProductCard = ({product, border = true}) => {
                     </div>
                     <div className={classes.cardInfo}>
                     <span>
-                        <h3>{product.name}</h3>
-                        <p>{product.collab}</p>
+                        <h3>{product.description}</h3>
+                        <p>{product.name}</p>
                     </span>
                         <h3>{product.price}с</h3>
                     </div>

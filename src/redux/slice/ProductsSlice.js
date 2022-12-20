@@ -6,16 +6,11 @@ const initialState = {
 };
 
 export const getProducts = createAsyncThunk("products/getProducts", async () => {
-    const {data} = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=40");
-    const products = [];
-    for (let i = 0; i < data.results.length; i++) {
-        const response = await axios.get(data.results[i].url);
-        products.push({
-            name: data.results[i].name,
-            image: response.data.sprites.other.dream_world.front_default,
-            collab: "French Fries Series",
-            price: 4500,
-        });
+    const {data} = await axios.get("http://164.92.190.147:8002/api/v1/caps/");
+    let products = [];
+    for (let i = 1; i <= Math.ceil(data.count / 3); i++) {
+        const response = await axios.get(`http://164.92.190.147:8002/api/v1/caps/?page=${i}`);
+        response.data.results.forEach(e => products.push(e));
     }
     return products;
 });
