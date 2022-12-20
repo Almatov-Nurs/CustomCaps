@@ -23,11 +23,11 @@ const CatalogPage = () => {
         } else if (select === 'Сначала дорогие') {
             setFilter([...products].sort((p, n) => n.price - p.price));
         }
-    },[select]);
+    },[products, select]);
     return (
         <div>
             <div><img className={classes.logo} src={logo} alt=""/>
-                <h1 className={classes.logoText}>НОВАЯ СЕРИЯ <br/>McLAREN</h1>
+                <h1 className={classes.logoText}>НОВАЯ СЕРИЯ<br/>McLAREN</h1>
             </div>
             <Container fixed>
                 <div className={classes.filter}>
@@ -41,7 +41,7 @@ const CatalogPage = () => {
                 <div className={classes.catalog}>
                     <ul className={classes.pictures}>
                         {
-                            (select === 'Популярные' ? products : filter).slice((pageSize * page) - pageSize, (pageSize * page)).map((e, k)=> <li key={k}><ProductCard product={e}/></li>)
+                            (select === 'Новинки' ? products : select === 'Популярные' ? products : filter).slice((pageSize * page) - pageSize, (pageSize * page)).map((e, k)=> <li key={k}><ProductCard product={e}/></li>)
                         }
                     </ul>
                     <div className={classes.pag}>
