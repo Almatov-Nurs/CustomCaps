@@ -19,6 +19,7 @@ function App() {
             <Route path="basket/" element={<BasketPage/>}/>
             <Route path="catalog2/" element={<Catalog2/>}/>
         </Routes>
+        <img/>
       <Footer/>
     </div>
   );

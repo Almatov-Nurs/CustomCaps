@@ -14,6 +14,10 @@
     display: flex;
     column-gap: 105px;
 }
+.left a svg {
+    width: 98px;
+    height: 84px;
+}
 .left div {
     width: max-content;
     display: flex;
@@ -41,6 +45,7 @@
     position: relative;
     width: 270px;
     height: 40px;
+    z-index: 10;
 }
 .right form input,
 .right form a {
@@ -50,6 +55,7 @@
     width: 100%;
     height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
     border-radius: 15px;
     padding: 10px 40px 10px 15px;
     font-weight: 500;
@@ -61,4 +67,20 @@
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
+}
+.right form ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 29px;
+    background: #fff;
+    padding: 15px 0 15px 22px;
+    border-radius: 0 0 15px 15px;
+    z-index: 9;
+}
+.right form ul li {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
 }

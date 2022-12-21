@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
-import {ProductsSelect} from "../../redux/slice/ProductsSlice";
+import {LoadSelect, ProductsSelect} from "../../redux/slice/ProductsSlice";
 import ProductCard from "../../components/productCard/ProductCard";
 import classes from "./css/CatalogPage.module.css"
-import {Container, Pagination} from "@mui/material";
+import {CircularProgress, Container, Pagination} from "@mui/material";
 import logo from "../../media/catalogPage/logo.png";
 
 const CatalogPage = () => {
+    const load = useSelector(LoadSelect);
+    const products = useSelector(ProductsSelect);
+    const products_ = products.concat(products.concat(products.concat(products.concat(products))))
     const [select, setSelect] = useState('Популярные');
     const [filter, setFilter] = useState([]);
     const [page, setPage] = useState(1);
     const pageSize = 16;
-    const products = useSelector(ProductsSelect);
 
     const handleSelect = e => {
         setSelect(e.target.value);
@@ -26,7 +28,7 @@ const CatalogPage = () => {
     },[products, select]);
     return (
         <div>
-            <div><img className={classes.logo} src={logo} alt=""/>
+            <div style={{position: "relative"}}><img className={classes.logo} src={logo} alt=""/>
                 <h1 className={classes.logoText}>НОВАЯ СЕРИЯ<br/>McLAREN</h1>
             </div>
             <Container fixed>
@@ -41,17 +43,19 @@ const CatalogPage = () => {
                 <div className={classes.catalog}>
                     <ul className={classes.pictures}>
                         {
-                            (select === 'Новинки' ? products : select === 'Популярные' ? products : filter).slice((pageSize * page) - pageSize, (pageSize * page)).map((e, k)=> <li key={k}><ProductCard product={e}/></li>)
+                            load
+                                ? <div style={{width: "100%", display: "flex", justifyContent: "center"}}><CircularProgress/></div>
+                                : (select === 'Новинки' ? products_ : select === 'Популярные' ? products_ : filter).slice((pageSize * page) - pageSize, (pageSize * page)).map((e, k)=> <li key={k}><ProductCard product={e}/></li>)
                         }
                     </ul>
                     <div className={classes.pag}>
                         {
-                            products.length >= pageSize &&
+                            !load && products_.length >= pageSize &&
                             <Pagination
-                                count={Math.ceil(products.length / pageSize)}
+                                count={Math.ceil(products_.length / pageSize)}
                                 onChange={(_, n) => setPage(n)}
                                 hidePrevButton={page === 1}
-                                hideNextButton={Math.ceil(products.length / pageSize) === page}
+                                hideNextButton={Math.ceil(products_.length / pageSize) === page}
                             />
                         }
                     </div>

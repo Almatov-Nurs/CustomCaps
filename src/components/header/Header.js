@@ -1,18 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import classes from "./css/Header.module.css";
-import {useDispatch} from "react-redux";
-import {getProducts} from "../../redux/slice/ProductsSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {getProducts, ProductsSelect} from "../../redux/slice/ProductsSlice";
 import {ReactComponent as Logo} from "../../media/header/logo.svg";
 import {ReactComponent as Search} from "../../media/header/search.svg";
 import {ReactComponent as Searching} from "../../media/header/searching.svg";
 import {ReactComponent as Basket} from "../../media/header/basket.svg";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import {getSearch} from "../../redux/slice/searchSlice";
 
 const Header = () => {
+    const location = useLocation();
+    const products = useSelector(ProductsSelect);
+    const dispatch = useDispatch();
     const [input, setInput] = useState('');
     const [searching, setSearching] = useState(false);
     const [select, setSelect] = useState([false, false, false]);
-    const dispatch = useDispatch();
+    const [search, setSearch] = useState([]);
+
+    const handleClick = ({target}) => {
+        setInput(target.value);
+        target.value !== "" ? setSearch(products.filter(e => e.name.includes(target.value))) : setSearch([]);
+    };
+    const searched = () => {
+        setInput("");
+        dispatch(getSearch(search));
+    };
+
+    window.addEventListener("scroll", () => location.pathname === "/" && console.log(window.scrollY));
 
     useEffect(()=>{
         dispatch(getProducts());
@@ -33,11 +48,16 @@ const Header = () => {
                         <input
                             type="text"
                             value={input}
-                            onChange={e=>setInput(e.target.value)}
+                            onChange={handleClick}
                             onFocus={()=>setSearching(true)}
                             onBlur={()=>setSearching(false)}
                         />
-                        <Link to="">{searching ? <Searching/> : <Search/>}</Link>
+                        <Link to="/search" onClick={searched}>{searching ? <Searching/> : <Search/>}</Link>
+                        <ul>
+                            {
+                                search.map((e, k) => <li key={k}>{e.name}</li>)
+                            }
+                        </ul>
                     </form>
                     <Link to="/basket/"><Basket/></Link>
                 </div>
