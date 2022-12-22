@@ -1,4 +1,5 @@
 .header {
+    top: 0;
     width: 100%;
     padding: 0 135px;
     margin-bottom: 30px;
@@ -48,7 +49,7 @@
     z-index: 10;
 }
 .right form input,
-.right form a {
+.right form>a {
     position: absolute;
 }
 .right form input {
@@ -63,7 +64,7 @@
     line-height: 22px;
     color: #555252;
 }
-.right form a {
+.right form>a {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
@@ -71,16 +72,19 @@
 .right form ul {
     display: flex;
     flex-direction: column;
+    row-gap: 2px;
     list-style: none;
     margin-top: 29px;
     background: #fff;
     padding: 15px 0 15px 22px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0 0 15px 15px;
     z-index: 9;
 }
-.right form ul li {
-    cursor: pointer;
+.right form ul li a {
+    text-decoration: none;
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
+    color: #000;
 }

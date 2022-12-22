@@ -1,0 +1,12 @@
+.searchPage {
+    position: relative;
+    padding: 0 135px;
+    min-height: 500px;
+}
+.searchPage ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px 30px;
+    flex-wrap: wrap;
+}

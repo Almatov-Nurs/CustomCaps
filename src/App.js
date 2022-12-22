@@ -7,20 +7,23 @@ import ProductPage from "./pages/productPage/ProductPage";
 import BasketPage from "./pages/basketPage/BasketPage";
 import CatalogPage from "./pages/catalogPage/CatalogPage";
 import Catalog2 from "./components/mainPage/catalog2/Catalog2";
+import PathGid from "./components/pathGid/PathGid";
+import SearchPage from "./pages/searchPage/SearchPage";
 
 function App() {
   return (
     <div className="app">
-      <Header/>
+        <Header/>
+        <PathGid/>
         <Routes>
             <Route path="" element={<MainPage/>}/>
             <Route path="catalog/" element={<CatalogPage/>}/>
+            <Route path="search/:search" element={<SearchPage/>}/>
             <Route path="cap/:name/" element={<ProductPage/>}/>
             <Route path="basket/" element={<BasketPage/>}/>
             <Route path="catalog2/" element={<Catalog2/>}/>
         </Routes>
-        <img/>
-      <Footer/>
+        <Footer/>
     </div>
   );
 }

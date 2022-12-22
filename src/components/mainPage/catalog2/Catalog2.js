@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "../catalog2/css/catalog2.module.css"
 import kepka from "../../../media/catalog2/photo.png"
 import BlockList from "../../../pages/catalog2Page/Catalog2Page";
+import {Link} from "react-router-dom";
 const Catalog2 = () => {
     return (
         <div>
@@ -20,7 +21,7 @@ const Catalog2 = () => {
                             <div className={styles.rightText}>
                                 <h1>SUPREME & NEW ERA</h1>
                                 <p>collaboration</p>
-                                <button>Открыть каталог</button>
+                                <Link to="/catalog/"><button>Открыть каталог</button></Link>
                             </div>
                         </div>
 

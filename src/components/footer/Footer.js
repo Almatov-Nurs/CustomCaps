@@ -21,7 +21,9 @@ const Footer = () => {
                     <a href=""><Twitter style={{width: 12, height: 10}}/></a>
                 </div>
             </div>
-            <div className={classes.bottom}></div>
+            <div className={classes.bottom}>
+                <p>© Copyright 2019 - Lift Media</p>
+            </div>
         </div>
     );
 };

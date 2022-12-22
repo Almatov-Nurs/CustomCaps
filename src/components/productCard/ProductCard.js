@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './css/ProductCard.module.css';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const ProductCard = ({product, border = true}) => {
     return (
         <div style={{width:"max-content"}}>
-            <NavLink className={classes.link} to={`/cap/${product.name}`}>
+            <Link className={classes.link} to={`/cap/${product.name}`}>
                 <div className={border ? classes.card : classes.cardSlide}>
                     <div className={classes.image}>
                         <img src={product.image} alt=""/>
@@ -18,7 +18,7 @@ const ProductCard = ({product, border = true}) => {
                         <h3>{product.price}с</h3>
                     </div>
                 </div>
-            </NavLink>
+            </Link>
         </div>
     );
 };

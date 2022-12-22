@@ -6,7 +6,7 @@ export const getSearch = createAsyncThunk("getSearch/get", (search) => {
 
 const initialState = {
     search: [],
-    load: false
+    load: true
 };
 
 const searchSlice = createSlice({
@@ -19,8 +19,8 @@ const searchSlice = createSlice({
                 state.load = true;
             })
             .addCase(getSearch.fulfilled, (state, action) => {
-                state.search = action.payload;
                 state.load = false;
+                state.search = action.payload;
             })
     }
 });

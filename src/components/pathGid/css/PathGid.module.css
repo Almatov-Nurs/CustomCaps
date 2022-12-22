@@ -1,0 +1,21 @@
+.pathGid {
+    display: flex;
+    padding: 0 135px;
+    margin-bottom: 30px;
+}
+.pathGid div {
+    display: inline-block;
+}
+.pathGid svg {
+    height: 9px;
+}
+.pathGid a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #847E7E;
+}
+.pathGid div:last-child a {
+    color: #FDDB16;
+}

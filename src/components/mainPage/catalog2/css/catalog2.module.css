@@ -4,7 +4,7 @@
 }
 .wrapper   {
     margin-bottom: 230px;
-    margin-top: 25px;
+    margin-top: 46px;
     width: 100%;
     height: 529px;
     top: 25px;
@@ -61,6 +61,7 @@
 .mainRight {
     margin-left: 66px;
     margin-top: 133px;
+    z-index: 5;
 }
 .rightText h1 {
     font-family: 'Montserrat', sans-serif;
@@ -84,11 +85,6 @@
 .rightText button  {
     /*text of button*/
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
     color: #FFFFFF;
     /*button*/
     margin-top: 40px;
@@ -100,6 +96,7 @@
     background: #670098;
     border-radius: 20px;
 }
+
 .mainKrug {
     position: absolute;
     margin-left: 1205px;
@@ -125,6 +122,7 @@
 .blockImg {
     margin-left: 23px;
     margin-top: 20px;
+    z-index: 4;
 }
 .cupsNumbers {
     padding-bottom: 160px;
