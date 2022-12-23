@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import style from '../basketPage/css/BasketPage.module.css';
 import classes from './css/ProductPage.module.css';
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProduct} from "../../redux/slice/ProductSlice";
 import {ProductsSelect} from "../../redux/slice/ProductsSlice";
@@ -12,19 +12,35 @@ import cap3 from '../../media/productPage/cap3.png';
 import Slider from "../../components/mainPage/slider/Slider";
 
 const ProductPage = () => {
+    const location = useLocation();
     const dispatch = useDispatch();
     const products = useSelector(ProductsSelect);
     const product = useSelector(state => state.cap.product);
     const load = useSelector(state => state.cap.load);
     const [size, setSize] = useState([]);
+    const [select, setSelect] = useState('');
     const [count, setCount] = useState(1);
     const params = useParams();
 
+    const handleSelect = ({target}) => {
+        setSelect(target.textContent);
+    };
+
+    const handleBasket = () => {
+        const basket = localStorage.getItem("basket");
+        basket === null
+            ? localStorage.setItem('basket', JSON.stringify([{...product, select: select, count: count}]))
+            : JSON.parse(basket).filter(e => e.name === product.name).length === 0
+                ? localStorage.setItem('basket', JSON.stringify([...JSON.parse(basket), product]))
+                : localStorage.setItem('basket', JSON.stringify([...JSON.parse(basket).filter(e => e.id !== product.id), {...product, select: select, count: count}]))
+    };
+
     useEffect(()=>{
+        window.scrollTo({top: 0});
         const s = ['S', 'M', 'L', 'XL'];
         dispatch(getProduct(products.filter(e=> e.name === params.name)[0]));
-        !load && product && setSize(s.slice(0, product.size.length))
-    },[products, product]);
+        !load && product && setSize(s.slice(0, product.size.length));
+    },[products, product, location]);
     return (
         <>
             <div className={classes.productPage}>
@@ -53,7 +69,10 @@ const ProductPage = () => {
                                         <div className={classes.sizes}>
                                             <ul>
                                                 {
-                                                    size.map((e, k) => <li key={k}>{e}</li>)
+                                                    size.map((e, k) => <li key={k} style={e === select
+                                                        ? {border: "1px solid #000"}
+                                                        : {border: "1px solid #C4C4C4"}
+                                                    } onClick={handleSelect}>{e}</li>)
                                                 }
                                             </ul>
                                         </div>
@@ -62,7 +81,7 @@ const ProductPage = () => {
                                     </div>
                                     <div className={classes.bottom}>
                                         <span>{product.price}сом</span>
-                                        <button>Добавить в корзину</button>
+                                        <button onClick={handleBasket}>Добавить в корзину</button>
                                     </div>
                                 </div>
                             </>

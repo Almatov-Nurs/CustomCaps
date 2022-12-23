@@ -8,18 +8,23 @@ const initialState = {
 
 export const getProducts = createAsyncThunk("products/getProducts", async () => {
     // const {data} = await axios.get("http://164.92.190.147:8002/api/v1/caps/");
-    let products = [];
-    for (let i = 1; i <= Math.ceil(16 / 3); i++) {
-        // const response = await axios.get(`http://164.92.190.147:8002/api/v1/caps/?page=${i}`);
-        // response.data.results.forEach(e => products.push(e));
+    // let products = [];
+    // for (let i = 1; i <= Math.ceil(16 / 3); i++) {
+    //     const response = await axios.get(`http://164.92.190.147:8002/api/v1/caps/?page=${i}`);
+    //     response.data.results.forEach(e => products.push(e));
+    // }
+    const {data} = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=16");
+    const products = [];
+    for (let i = 0; i < data.results.length; i++) {
+        const response = await axios.get(data.results[i].url);
         products.push({
-            id: i,
-            name: "qwerty",
+            id: i+1,
+            name: data.results[i].name,
             description: "asd",
-            image: "https://bishkek.partner-moto.com/media/509/50913.webp",
-            price: 2000,
+            image: response.data.sprites.other.dream_world.front_default,
+            price: 45000,
             size: [1,2,3,4]
-        })
+        });
     }
     return products;
 });

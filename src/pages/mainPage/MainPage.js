@@ -9,6 +9,7 @@ const MainPage = () => {
         <div>
             <Catalog1/>
             <Catalog2Page style={{display: "flex", padding: "0 135px", marginBottom: 60}}/>
+            <h1 style={{textAlign: "center", marginBottom: 40}}>TOP SELLERS.</h1>
             <Slider/>
             <Catalog2/>
         </div>
